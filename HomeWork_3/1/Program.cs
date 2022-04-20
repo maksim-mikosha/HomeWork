@@ -6,6 +6,7 @@ string stringNumber = Console.ReadLine();
 if (stringNumber.Length != 5)
 {
     Console.WriteLine("Некорректный ввод!");
+    return;
 }
 
 int index = 0;
