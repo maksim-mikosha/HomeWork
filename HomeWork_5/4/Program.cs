@@ -2,16 +2,18 @@
 
 Console.WriteLine("Введи пароль!");
 
-string secretString = "password";
+string secretString = "Что-то очень секретное!";
+string passwordString = "password";
 int countTry = 1;
 
 while (countTry <= 3)
 {
     Console.Write("Угадывай! Попытка № " + countTry + " - ");
     string userString = Console.ReadLine();
-    if (userString == secretString)
+    if (userString == passwordString)
     {
         Console.WriteLine("Поздравляю! Ты справился :)");
+        Console.WriteLine(secretString);
         break;
     }
     else
@@ -24,5 +26,4 @@ while (countTry <= 3)
 if (countTry > 3)
 {
     Console.WriteLine("Попытки закончились. Удачи в следующий раз.");
-    Console.WriteLine("Пароль - " + secretString);
 }
