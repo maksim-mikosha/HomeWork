@@ -31,7 +31,28 @@ void ParseStringToArray(string userString)
         //         continue;
         //     }
         // }
-
+        //-------------------Второй вариант--------------- проверить
+//         if (Convert.ToString(userString[i]) == " " || Convert.ToString(userString[i]) == ",")
+//         {
+//             continue;
+//         }
+        
+//         string tempString = userString[i];
+//         i++;                                        
+//         while (Convert.ToString(userString[i]) != " " || Convert.ToString(userString[i]) != ",")
+//         {
+//             if (i != userString.Length - 1)
+//             {
+//                 tempString += userString[i];
+//                 i++;
+//             }
+//             else
+//             {
+//                 tempString += userString[i];
+//                 continue;
+//             }
+//         }
+        
         if (Convert.ToString(userString[i]) == " " || Convert.ToString(userString[i]) == ",")
         {
             continue;
