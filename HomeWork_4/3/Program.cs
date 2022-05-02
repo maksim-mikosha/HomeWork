@@ -17,49 +17,19 @@ void ParseStringToArray(string userString)
     
     for (int i = 0; i < userString.Length; i++)
     {
-        // string tempString = string.Empty;                                        // Не совсем рабочий блок за обработку чисел больше 1 цифры
-        // while (Convert.ToString(userString[i]) != " " || Convert.ToString(userString[i]) != ",")
-        // {
-        //     if (i != userString.Length - 1)
-        //     {
-        //         tempString += userString[i];
-        //         i++;
-        //     }
-        //     else
-        //     {
-        //         tempString += userString[i];
-        //         continue;
-        //     }
-        // }
-        //-------------------Второй вариант--------------- проверить
-//         if (Convert.ToString(userString[i]) == " " || Convert.ToString(userString[i]) == ",")
-//         {
-//             continue;
-//         }
-        
-//         string tempString = userString[i];
-//         i++;                                        
-//         while (Convert.ToString(userString[i]) != " " || Convert.ToString(userString[i]) != ",")
-//         {
-//             if (i != userString.Length - 1)
-//             {
-//                 tempString += userString[i];
-//                 i++;
-//             }
-//             else
-//             {
-//                 tempString += userString[i];
-//                 continue;
-//             }
-//         }
-        
-        if (Convert.ToString(userString[i]) == " " || Convert.ToString(userString[i]) == ",")
+        string tempString = string.Empty;
+        while (userString[i].ToString() != " " & userString[i].ToString() != ",")
         {
-            continue;
+            tempString += userString[i];
+            i++;
+            if (i == userString.Length )
+            {
+                break;
+            }
         }
 
-        userArray[count] = Convert.ToInt32(userString[i].ToString());
-        count++;
+            userArray[count] = Convert.ToInt32(tempString);
+            count++;
     }
 }
 
