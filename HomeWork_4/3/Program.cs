@@ -5,60 +5,46 @@ Console.Write("Ввод массива - ");
 string userString = Console.ReadLine();
 int[] userArray = new int[8];
 
-if (userString.Length < 15)
-{
-    Console.WriteLine("Некорректный ввод элементов массива!");
-    return;
-}
+// if (userString.Length < 15)
+// {
+//     Console.WriteLine("Некорректный ввод элементов массива!");
+//     return;
+// }
 
 void ParseStringToArray(string userString)
 {
     int count = 0;
-    
+    string tempString = string.Empty;
+
     for (int i = 0; i < userString.Length; i++)
     {
-        // string tempString = string.Empty;                                        // Не совсем рабочий блок за обработку чисел больше 1 цифры
-        // while (Convert.ToString(userString[i]) != " " || Convert.ToString(userString[i]) != ",")
-        // {
-        //     if (i != userString.Length - 1)
-        //     {
-        //         tempString += userString[i];
-        //         i++;
-        //     }
-        //     else
-        //     {
-        //         tempString += userString[i];
-        //         continue;
-        //     }
-        // }
-        //-------------------Второй вариант--------------- проверить
-//         if (Convert.ToString(userString[i]) == " " || Convert.ToString(userString[i]) == ",")
-//         {
-//             continue;
-//         }
+        if (Convert.ToString(userString[i]) == " " || Convert.ToString(userString[i]) == ",")
+        {
+            continue;
+        }
         
-//         string tempString = userString[i];
-//         i++;                                        
-//         while (Convert.ToString(userString[i]) != " " || Convert.ToString(userString[i]) != ",")
-//         {
-//             if (i != userString.Length - 1)
-//             {
-//                 tempString += userString[i];
-//                 i++;
-//             }
-//             else
-//             {
-//                 tempString += userString[i];
-//                 continue;
-//             }
-//         }
+        // tempString = userString[i].ToString();
+        // i++;                                        
+        while (Convert.ToString(userString[i]) != " " || Convert.ToString(userString[i]) != ",")
+        {
+            if (i != userString.Length - 1)
+            {
+                tempString += userString[i];
+                i++;
+            }
+            else
+            {
+                tempString += userString[i];
+                continue;
+            }
+        }
         
         if (Convert.ToString(userString[i]) == " " || Convert.ToString(userString[i]) == ",")
         {
             continue;
         }
 
-        userArray[count] = Convert.ToInt32(userString[i].ToString());
+        userArray[count] = Convert.ToInt32(tempString.ToString());
         count++;
     }
 }
