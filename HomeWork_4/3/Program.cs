@@ -5,16 +5,19 @@ Console.Write("Ввод массива - ");
 string userString = Console.ReadLine();
 int[] userArray = new int[8];
 
-if (userString.Length < 15)
+if (userString.Length < userArray.Length * 2 - 1)
 {
-    Console.WriteLine("Некорректный ввод элементов массива!");
+    Console.WriteLine("Вы ввели меньше 8 чисел, что недостаточно для формирования массива");
     return;
 }
+
+ParseStringToArray(userString);
+WriteArray(userArray);
 
 void ParseStringToArray(string userString)
 {
     int count = 0;
-    
+
     for (int i = 0; i < userString.Length; i++)
     {
         string tempString = string.Empty;
@@ -22,14 +25,21 @@ void ParseStringToArray(string userString)
         {
             tempString += userString[i];
             i++;
-            if (i == userString.Length )
+            if (i == userString.Length)
             {
                 break;
             }
         }
 
+        if (tempString == "")
+        {
+            continue;
+        }
+        else
+        {
             userArray[count] = Convert.ToInt32(tempString);
             count++;
+        }
     }
 }
 
@@ -40,6 +50,3 @@ void WriteArray(int[] userArray)
         Console.Write($"{userArray[i]} ");
     }
 }
-
-ParseStringToArray(userString);
-WriteArray(userArray);
