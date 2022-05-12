@@ -40,6 +40,8 @@ void ParseStringToArray(string userString)
             userArray[count] = Convert.ToInt32(tempString);
             count++;
         }
+
+        if (count == userArray.Length) break;
     }
 }
 
