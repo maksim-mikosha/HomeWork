@@ -3,10 +3,10 @@
 int rowArray = Input("Введите количество строк в массиве - ");
 int columnsArray = Input("Введите количество столбцов в массиве - ");
 
-int[,] arrayOfDouble = new int[rowArray, columnsArray];
+int[,] arrayOfNumbers = new int[rowArray, columnsArray];
 
 Console.WriteLine("Заполняю массив случайными числами.");
-FillArray(arrayOfDouble);
+FillArray(arrayOfNumbers);
 int searchOfNumber = Input("Введите число для поиска - ");
 bool resultOfSearch = false;
 
@@ -14,7 +14,7 @@ for (int i = 0; i < rowArray; i++)
 {
     for (int j = 0; j < columnsArray; j++)
     {
-        if (arrayOfDouble[i,j] == searchOfNumber)
+        if (arrayOfNumbers[i,j] == searchOfNumber)
         {
             Console.WriteLine($"Число {searchOfNumber} есть в массиве на позиции [{i}, {j}]");
             resultOfSearch = true;
@@ -29,7 +29,7 @@ if (!resultOfSearch)
 }  
 
 Console.WriteLine("Заполненный массив");
-PrintArray(arrayOfDouble);
+PrintArray(arrayOfNumbers);
 
 void FillArray(int[,] array)
 {
@@ -37,7 +37,7 @@ void FillArray(int[,] array)
     {
         for (int j = 0; j < columnsArray; j++)
         {
-            arrayOfDouble[i, j] = new Random().Next(0, 11);
+            arrayOfNumbers[i, j] = new Random().Next(0, 11);
         }
     }
 }
