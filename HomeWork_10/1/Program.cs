@@ -17,11 +17,11 @@ void FillArray(int[,] array)
     int value = 2;
     for (int k = value; k <= inputNumber; k++)
     {
-        CheckValue(array, k);
+        ChoisePositionForValue(array, k);
     }
 }
 
-void CheckValue(int[,] array, int value)
+void ChoisePositionForValue(int[,] array, int value)
 {
     int i = 1;
 
@@ -32,12 +32,9 @@ void CheckValue(int[,] array, int value)
             array[i, 0] = value;
             break;
         }
-        if (array[i, j - 1] % value == 0)
+        if (value % array[i, j - 1] == 0)
         {
-            if (value % array[i, j - 1] == 0)
-            {
-                i++;
-            }
+            i++;
         }
         if (array[i, j] != 0)
         {
