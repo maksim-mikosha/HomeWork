@@ -15,34 +15,33 @@ void FillArray(int[,] array)
 {
     array[0, 0] = 1;
     int value = 2;
-    for (int k = value; k < inputNumber; value++)
+    for (int k = value; k < inputNumber; k++)
     {
-        int i = 1;
-        int j = 0;
-        if (CheckValue(array, value))
-        {
-            array[i, j] = value;
-            break;
-        }
+        CheckValue(array, k);
     }
 }
 
-bool CheckValue(int[,] array, int value)
+void CheckValue(int[,] array, int value)
 {
     for (int i = 1; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < array.GetLength(1); i++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
+            if (array[i, j] == 0)
+            {
+                array[i, j] = value;
+                break;
+            }
+
             if (array[i, j] % value == 0)
             {
                 if (value % array[i, j] == 0)
                 {
-                    return false;
+                    break;
                 }
             }
         }
     }
-    return true;
 }
 
 void PrintArray(int[,] array)
